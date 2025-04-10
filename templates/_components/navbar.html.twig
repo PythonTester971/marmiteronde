@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img id="brand-logo" src="{{ asset('images/logo_blobeat_website.png') }}"
+        alt="logo eatblob"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{ path('app_home') }}">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('all_recipes')}}">Toutes les recettes</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Catégories
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+
+        {% if not app.user %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{path('app_login')}}">Connexion/S'inscrire</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="#">Bonjour {{ app.user.username }} !</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Profil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('app_logout')}}">Déconnexion</a>
+        </li>
+        {% if is_granted('ROLE_ADMIN') %}
+        <li class="nav-item">
+          TODO
+          <a class="nav-link" href="{{ path('app_admin')}}">ADMIN</a>
+        </li>
+        {% endif %}
+        {% endif %}
+
+      </ul>
+    </div>
+  </div>
+</nav>

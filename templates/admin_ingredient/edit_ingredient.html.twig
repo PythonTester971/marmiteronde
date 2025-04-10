@@ -1,0 +1,13 @@
+{% extends "base_admin.html.twig" %}
+
+{% block div %}
+
+<h1>Modifier {{ ingredient.label}}</h1>
+
+{{ form_start(form) }}
+
+<button type="submit">Sauvegarder</button>
+
+{{ form_end(form) }}
+
+{% endblock %}

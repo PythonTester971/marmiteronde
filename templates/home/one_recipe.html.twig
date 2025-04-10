@@ -1,0 +1,51 @@
+{% extends "base_visitor.html.twig" %}
+
+{% block main %}
+
+<h1>{{ recipe.title}}</h1>
+
+<img class="w-50" src="{{ recipe.media }}" alt="">
+
+<ul>
+  <li> {{ recipe.user.username }}</li>
+  {# <li>{{ recipe.updatedAt }}</li> #}
+</ul>
+<hr>
+<ul>
+  {% for ingredient in recipe.ingredients %}
+  <li>{{ ingredient.label }}</li>
+  {% endfor %}
+</ul>
+
+
+
+<p>{{ recipe.content }}</p>
+
+<div class="container">
+  {% if app.user %}
+  <div>
+    {{ form_start(form) }}
+
+    {# {{ form_row(form.label) }} #}
+
+    <button type="submit">Sauvegarder</button>
+
+    {{ form_end(form) }}
+  </div>
+  {% else %}
+  <p>Envie de donner votre avis ? S'inscrire</p>
+  {% endif %}
+
+  {% for comment in comments %}
+  <div class="mb-3">
+    <div>
+      <ul>
+        <li>{{ comment.user.username }}</li>
+      </ul>
+    </div>
+    <div>{{ comment.content }}</div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

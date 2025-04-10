@@ -1,0 +1,20 @@
+<div class="col-lg-4">
+  <div class="card g-5">
+    <img src="{{ recipe.media }}" class="object-fit-cover card-img-top" alt="{{ recipe.title }}">
+    <div class="card-body">
+      <h5 class="card-title">{{ recipe.title }}</h5>
+      <p class="card-text">{{ recipe.content|slice(0,40) }}...</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">postée par {{ recipe.user.username}}</li>
+      <li class="list-group-item">
+        (Produits de la mer, Insolite)
+      </li>
+      <li class="list-group-item">durée max : {{ recipe.duration }} min.</li>
+    </ul>
+    <div class="card-body">
+      <a href="#" class="card-link">{{ recipe.difficulty.label}}</a>
+      <a href="{{ path('see_a_recipe',{'id': recipe.id}) }}" class="card-link">Voir la recette</a>
+    </div>
+  </div>
+</div>

@@ -1,3 +1,24 @@
 body {
-    background-color: skyblue;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+.card {
+
+    height: 650px;
+}
+
+#brand-logo {
+    width: 50px;
+    border-radius: 50%;
+}
+
+li {
+    list-style: none;
 }

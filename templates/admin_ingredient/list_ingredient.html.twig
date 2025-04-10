@@ -1,0 +1,33 @@
+{% extends "base_admin.html.twig" %}
+
+{% block div %}
+
+<h1>Liste des ingrédients EatBlob</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Nom</th>
+      <th scope="col">Unité de mesure</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for ingredient in ingredients %}
+    <tr>
+      <th scope="row">#</th>
+      <td>{{ ingredient.label }}</td>
+      <td>{{ ingredient.measure }}</td>
+      <td>
+        <a href="{{ path('item_ingredient', {'id': ingredient.id})}}">Voir</a>
+        <a href="{{ path('edit_ingredient', {'id': ingredient.id})}}">- Editer</a>
+        - Supprimer
+      </td>
+    </tr>
+    {% endfor %}
+
+
+  </tbody>
+</table>
+
+{% endblock %}
