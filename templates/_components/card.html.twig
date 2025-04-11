@@ -11,9 +11,10 @@
         (Produits de la mer, Insolite)
       </li>
       <li class="list-group-item">durée max : {{ recipe.duration }} min.</li>
+      <li class="list-group-item">{{ recipe.difficulty.label}}</li>
     </ul>
     <div class="card-body">
-      <a href="#" class="card-link">{{ recipe.difficulty.label}}</a>
+
       <a href="{{ path('see_a_recipe',{'id': recipe.id}) }}" class="card-link">Voir la recette</a>
     </div>
   </div>

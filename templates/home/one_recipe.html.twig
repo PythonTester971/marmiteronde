@@ -38,14 +38,27 @@
 
   {% for comment in comments %}
   <div class="mb-3">
-    <div>
-      <ul>
-        <li>{{ comment.user.username }}</li>
-      </ul>
+    <div class="card">
+      <div class="card-header d-flex justify-content-between">
+        <p>{{ comment.user.username }}</p>
+        <p>{{ comment.updatedAt|date("m/d/Y")}}</p>
+      </div>
+      <div class="card-body">
+        <p class="card-text">{{ comment.content }}</p>
+      </div>
+      {% if app.user.username == comment.user.username %}
+      <div class="card-footer">
+        <a href="">Edit</a>
+        <a href="">Supprimer</a>
+      </div>
     </div>
-    <div>{{ comment.content }}</div>
   </div>
-  {% endfor %}
+
+
+  {% endif %}
+
+</div>
+{% endfor %}
 </div>
 
 {% endblock %}
